@@ -1,14 +1,29 @@
+import { Button } from '@/components/ui/button';
+import { AlertCircle } from 'lucide-react';
+import { toast } from 'sonner';
+import { Toaster } from '@/components/ui/sonner';
+
 export function App() {
   return (
-    <main className='min-h-dvh content-center-safe bg-neutral-200'>
-      <section className='grid min-h-[90dvh] place-content-center-safe gap-4 bg-neutral-600 text-center text-white/85'>
-        <h1 className='text-5xl font-semibold'>Template</h1>
-        <div className='text-3xl'>
-          <span className='font-medium text-sky-400/80'>React </span>+
-          <span className='font-medium text-blue-400/90'> TypeScript SWC </span>
-          +<span className='font-medium text-sky-400/80'> Tailwind CSS </span>+
-          <span className='font-medium'> shadcn / ui </span>
-        </div>
+    <main className='content-center'>
+      <section className='grid h-full min-h-dvh place-content-center-safe bg-neutral-950'>
+        <Button
+          className='transition hover:-translate-y-1 hover:scale-105 hover:animate-ping focus-visible:-translate-y-1 focus-visible:scale-105 focus-visible:animate-pulse'
+          variant='outline'
+          onClick={() =>
+            toast('You just clicked!', {
+              cancel: {
+                label: 'Close',
+                onClick: () => {
+                  return;
+                },
+              },
+            })
+          }
+        >
+          <AlertCircle /> Click me!
+        </Button>
+        <Toaster />
       </section>
     </main>
   );
